@@ -18,5 +18,5 @@ const MyHometask: ExInterface = {
 //Ex 3
 interface MyArray<T> {
 	[N: number]: T;
-	reduce(fn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T): T;
+	reduce<U>(fn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, init: U): U;
 }
