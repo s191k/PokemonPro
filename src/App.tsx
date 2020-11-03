@@ -7,10 +7,9 @@ import Footer from './components/Footer/index.js';
 
 const App = () => {
   return (
-    // <Header />
-    // <div className={cn(s.header, 'color')}>
     <>
       <Header />
+      {/* <div className={cn(s.header, 'color')}> */}
       <div>
         <div>This is App Component!</div>
       </div>
