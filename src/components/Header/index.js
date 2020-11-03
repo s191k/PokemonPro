@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './Header.module.scss';
 import { Navbar,Nav } from 'react-bootstrap'
+import logo from './img/pokemon-logo.png'; // with import
 
 // https://react-bootstrap.github.io/components/
 
@@ -9,8 +10,7 @@ const Header = () => {
     <>
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Navbar.Brand href="#home">
-        <img src='https://cdn.freebiesupply.com/images/large/2x/pokemon-logo-black-transparent.png'/>
-        {/* <img src='./img/pokemon-logo.png' /> */}
+        <img src={logo} height='100'/>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
