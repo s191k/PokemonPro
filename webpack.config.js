@@ -12,6 +12,11 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
   },
+  watch: true,
+  watchOptions: {
+  ignored: /node_modules/,
+  poll: 1000 // Check for changes every second
+  },
   module: {
     rules: [
       {
