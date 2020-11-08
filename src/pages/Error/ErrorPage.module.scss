@@ -1,0 +1,18 @@
+/// @import "../../varibales";
+@import "../../variables";
+
+.root {
+  min-height: 100vh;
+  background: linear-gradient(180deg, $third 0%, $primary 100%);
+}
+
+.notFound {
+  text-align: center; /* Выравнивание по центру */ 
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.pikaDontKnow {
+  margin-right: 3%;
+  text-align: center; /* Выравнивание по центру */ 
+}

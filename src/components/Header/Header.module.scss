@@ -1,3 +1,22 @@
-.header {
-  font-size: 64px;
+@import "../../variables";
+
+.root {
+  height: 93px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1125px;
+  height: 63px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pokemonLogo {
+  width: 158px;
+  height: 63px;
 }
