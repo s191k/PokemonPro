@@ -1,4 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    min-height: 100vh;
-    background: linear-gradient(180deg, #F5DB13 0%, #F2B807 100%);
+    font-family: 'Karla', sans-serif;
 }
