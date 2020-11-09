@@ -5,6 +5,8 @@ import PokemonCardsMini from "../../components/PokemonCardsMini";
 
 import s from "./Pokedex.module.scss";
 
+import {pokemons} from "../../data/pokemons"
+import PokemonCard from '../../components/PokemonCard';
 
 const PokedexPage = () => {
     return(
@@ -15,7 +17,37 @@ const PokedexPage = () => {
         <p>800 Pokemons for you to choose your favorite</p>
         <input type="search" aria-label="Encuentra tu pokémon..."></input>
         <Combobox/>
-        <PokemonCardsMini/>
+        {/* <PokemonCardsMini/> */}
+        
+        {/* <form>
+                    <p><select name="combobox_Tipo">
+                        <option selected>Tipo</option>
+                        {
+                            ICombobox.map(({id , value}) => (
+                            <option key={id}>{value}</option>
+                            ))
+                        }
+                    </select></p>
+                </form> */}
+
+        {
+            pokemons.map(({name,stats,types}) => (
+
+              <div>
+                  <PokemonCard
+                   name = {name}
+                   attack = {stats.attack}
+                   defense  = {stats.defense}
+                   type = {types}
+                   
+                   />
+              </div>  
+
+
+            ))
+        }
+
+
         </>
     )
 }

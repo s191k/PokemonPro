@@ -15,6 +15,7 @@
     "@types/reactstrap": "^8.7.2",
     "classnames": "^2.2.6",
     "cross-env": "^7.0.2",
+    "hookrouter": "^1.2.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0"
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@svgr/webpack": "^5.4.0",
     "@types/classnames": "^2.2.11",
+    "@types/hookrouter": "^2.2.3",
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.9",
     "@types/react-router-dom": "^5.1.6",
