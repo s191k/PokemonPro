@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // import Heading from "../Heading";
 
 import s from './PokemonCard.module.scss';
@@ -12,6 +12,20 @@ interface IPokemonCard {
 }
 
 const PokemonCard: React.FC<IPokemonCard> = ({name, attack, defense, type, img}) => {
+
+    // const [screenX,setScreenX] = useState(0); // Нужно узнать стартовый X карточки
+    // const [screenY,setScreenY] = useState(0); // Нужно узнать стартовый Y карточки
+
+    // useEffect(()=>{
+    //     const handleMouseMove = (event: MouseEvent) => {
+    //         setScreenX(event.screenX);
+    //         setScreenY(event.screenY);
+    //     }
+    //     window.addEventListener('mousemove', handleMouseMove);
+    //     return () => window.removeEventListener('mousemove', handleMouseMove)
+    // }, [screenX,screenY]);
+
+    
     return (
         <div className={s.root}>
             <div className={s.infoWrap}>
@@ -49,7 +63,11 @@ const PokemonCard: React.FC<IPokemonCard> = ({name, attack, defense, type, img})
                 }
                 </div>
             </div>
-            <div className={s.pictureWrap}>
+            <div className={s.pictureWrap}                 
+                // style = {{
+                //     transform: `translate(${screenY * 0.01}px, ${screenX * 0.01}px)`
+                // }}
+                >
                 <img src={img} alt={name} />
             </div>
         </div>
