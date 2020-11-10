@@ -31,7 +31,7 @@ const PokedexPage = () => {
                 </form> */}
 
         {
-            pokemons.map(({name,stats,types}) => (
+            pokemons.map(({name,stats,types,img}) => (
 
               <div>
                   <PokemonCard
@@ -39,6 +39,7 @@ const PokedexPage = () => {
                    attack = {stats.attack}
                    defense  = {stats.defense}
                    type = {types}
+                   img={img}
                    
                    />
               </div>  

@@ -5,19 +5,20 @@ import s from './PokemonCard.module.scss';
 
 interface IPokemonCard {
     name:string,
-    attack:string,
-    defense:string,
-    type:string,
+    attack:number,
+    defense:number,
+    type:string[],
+    img:string,
 }
 
-const PokemonCard: React.FC<IPokemonCard> = ({name, attack, defense, type}) => {
+const PokemonCard: React.FC<IPokemonCard> = ({name, attack, defense, type, img}) => {
     return (
         <div className={s.root}>
             <div className={s.infoWrap}>
                 {/* <Heading size='xs' className={s.titleName}>
                     Charmander
                 </Heading> */}
-                <div>{name}</div>
+                <div className={s.titleName}>{name}</div>
 
                 <div className={s.statWrap}>
                     <div className={s.statItem}>
@@ -34,11 +35,18 @@ const PokemonCard: React.FC<IPokemonCard> = ({name, attack, defense, type}) => {
                     </div>
                 </div>
                 <div className={s.labelWrap}>
-                <span className={s.label}>{type}</span>
+                {
+                    type.map((curType) => (
+                        <>
+                        <span className={s.label}>{curType}</span>
+                        </>
+                    ))
+
+                }
                 </div>
             </div>
             <div className={s.pictureWrap}>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Charmander" />
+                <img src={img} alt={name} />
             </div>
         </div>
     );
