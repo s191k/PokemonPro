@@ -14,22 +14,11 @@ const PokedexPage = () => {
         <div>
             <Header/>
         </div>
-        <p>800 Pokemons for you to choose your favorite</p>
-        <input type="search" aria-label="Encuentra tu pokémon..."></input>
+        <div className={s.title}>
+            800 <b>Pokemons</b> for you to choose your favorite
+        </div>
+        <input type="search" aria-label="Encuentra tu pokémon..." className={s.search_field}></input>
         <Combobox/>
-        {/* <PokemonCardsMini/> */}
-        
-        {/* <form>
-                    <p><select name="combobox_Tipo">
-                        <option selected>Tipo</option>
-                        {
-                            ICombobox.map(({id , value}) => (
-                            <option key={id}>{value}</option>
-                            ))
-                        }
-                    </select></p>
-                </form> */}
-
         {
             pokemons.map(({name,stats,types,img}) => (
 
@@ -40,11 +29,8 @@ const PokedexPage = () => {
                    defense  = {stats.defense}
                    type = {types}
                    img={img}
-                   
                    />
               </div>  
-
-
             ))
         }
 

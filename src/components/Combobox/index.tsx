@@ -30,36 +30,39 @@ const Combobox = () => {
 
         return(
             <>
-                <form>
-                    <p><select name="combobox_Tipo">
-                        <option selected>Tipo</option>
-                        {
-                            ICombobox.map(({id , value}) => (
-                            <option key={id}>{value}</option>
-                            ))
-                        }
-                    </select></p>
-                </form>
-                <form>
-                    <p><select name="combobox_Ataque">
-                        <option selected>Ataque</option>
-                        {
-                            ICombobox.map(({id , value}) => (
-                            <option key={id}>{value}</option>
-                            ))
-                        }
-                    </select></p>
-                </form>
-                <form>
-                    <p><select name="combobox_Experiencia">
-                        <option selected>Experiencia</option>
-                        {
-                            ICombobox.map(({id , value}) => (
-                            <option key={id}>{value}</option>
-                            ))
-                        }
-                    </select></p>
-                </form>
+                <br/>
+                <div className={s.center}>
+                    <form className={s.form}>
+                        <p><select name="combobox_Tipo" className={s.select}>
+                            <option selected className={s.option}>Tipo</option>
+                            {
+                                ICombobox.map(({id , value}) => (
+                                <option key={id} className={s.option}>{value}</option>
+                                ))
+                            }
+                        </select></p>
+                    </form>
+                    <form className={s.form}>
+                        <p><select name="combobox_Ataque" className={s.select}>
+                            <option selected className={s.option}>Ataque</option>
+                            {
+                                ICombobox.map(({id , value}) => (
+                                <option key={id} className={s.option}>{value}</option>
+                                ))
+                            }
+                        </select></p>
+                    </form>
+                    <form className={s.form}>
+                        <p><select name="combobox_Experiencia" className={s.select}>
+                            <option selected className={s.option}>Experiencia</option>
+                            {
+                                ICombobox.map(({id , value}) => (
+                                <option key={id} className={s.option}>{value}</option>
+                                ))
+                            }
+                        </select></p>
+                    </form>
+                </div>
            </>
         )
 }
