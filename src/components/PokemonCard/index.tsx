@@ -38,7 +38,11 @@ const PokemonCard: React.FC<IPokemonCard> = ({name, attack, defense, type, img})
                 {
                     type.map((curType) => (
                         <>
-                        <span className={s.label}>{curType}</span>
+                        <span className={s.label}>
+                        {/* <span className={cn(s.label,{
+                                 [s.label.bac]: link===path,
+                                 })}> */}
+                            {curType}</span>
                         </>
                     ))
 

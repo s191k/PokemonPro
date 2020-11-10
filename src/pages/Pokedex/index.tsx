@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from "../../components/Header";
 import Combobox from "../../components/Combobox";
-import PokemonCardsMini from "../../components/PokemonCardsMini";
+// import PokemonCardsMini from "../../components/PokemonCardsMini";
 
 import s from "./Pokedex.module.scss";
 
@@ -19,20 +19,22 @@ const PokedexPage = () => {
         </div>
         <input type="search" aria-label="Encuentra tu pokémon..." className={s.search_field}></input>
         <Combobox/>
-        {
-            pokemons.map(({name,stats,types,img}) => (
+        <div className={s.pokemons_block}>
+            {
+                pokemons.map(({name,stats,types,img}) => (
 
-              <div>
-                  <PokemonCard
-                   name = {name}
-                   attack = {stats.attack}
-                   defense  = {stats.defense}
-                   type = {types}
-                   img={img}
-                   />
-              </div>  
-            ))
-        }
+                <div className={s.inline}>
+                    <PokemonCard
+                    name = {name}
+                    attack = {stats.attack}
+                    defense  = {stats.defense}
+                    type = {types}
+                    img={img}
+                    />
+                </div>  
+                ))
+            }
+        </div>    
 
 
         </>
