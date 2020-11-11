@@ -1,0 +1,44 @@
+.red_background {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: #FFC0CB;
+}
+
+.img {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.text_loading {
+    position: absolute;
+    left: 8%;
+    right: -0.55%;
+    top: -10.86%;
+    bottom: -10.86%;
+
+    font-family: Karla;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 200px;
+    line-height: 218px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 4px;
+
+    color: rgb(241, 226, 226, 0.5);
+}
+
+.form_loading {
+    position: absolute;
+    left: 5.69%;
+    right: 5.62%;
+    top: 9.38%;
+    bottom: 25%;
+
+    /* blur24 */
+
+    filter: drop-shadow(4px 4px 24px rgba(1, 17, 38, 0.2));
+}

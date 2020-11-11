@@ -7,6 +7,8 @@ import s from "./Pokedex.module.scss";
 
 import {pokemons} from "../../data/pokemons"
 import PokemonCard from '../../components/PokemonCard';
+import LoadingPage from '../Loading';
+import NotFoundPage from '../NotFoundPage';
 
 
 const usePokemons = () => {
@@ -49,8 +51,8 @@ const PokedexPage = () => {
     } = usePokemons();
     console.log(data);
 
-    if (isLoading) { return <div> is Loading... </div>}
-    if (isError) { return <div> Something went wrong </div>}
+    if (isLoading) { return  <LoadingPage/>}
+    if (isError) { return <NotFoundPage/>}
 
     return(
         <>
@@ -64,7 +66,6 @@ const PokedexPage = () => {
         <Combobox/>
         <div className={s.pokemons_block}>
             {
-                // pokemons.map(({name,stats,types,img}) => (
                     data.pokemons.map(({name,stats,types,img}) => (
                         // TODO Add key ?
                 <div className={s.inline}>
