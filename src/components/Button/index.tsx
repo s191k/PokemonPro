@@ -2,10 +2,10 @@ import React from 'react';
 import s from "./Button.module.scss";
 
 interface ButtonProps {
-    onClick: (event: React.MouseEvent<HTMLButtonElement>)=>void;
-    fullWidth:boolean; //?
-    color:string; //?
-    size:string; //?
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>)=>void;
+    fullWidth?:boolean; //?
+    color?:string; //?
+    size?:string; //?
 }
 
 

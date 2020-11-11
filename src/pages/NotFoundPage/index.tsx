@@ -3,6 +3,7 @@ import s from "./NotFoundPage.module.scss";
 import Team_Rocket_trio from './assets/Team_Rocket_trio.png';
 import Button from "../../components/Button";
 import {navigate} from 'hookrouter'
+import { LinkEnum } from '../../routes';
 
 const NotFoundPage = () => {
     return(
@@ -23,7 +24,7 @@ const NotFoundPage = () => {
                         The rocket team has won this time.
                     </h1>
                 </div>
-                <Button onClick={()=> navigate('/')} 
+                <Button onClick={()=> navigate(LinkEnum.HOME)} 
                         fullWidth={false}
                         color='color??'
                         size='size??'

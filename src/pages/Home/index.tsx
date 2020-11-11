@@ -4,6 +4,7 @@ import Button from "../../components/Button";
 import Parallax from "../../components/Parallax";
 import s from "./Home.module.scss";
 import {navigate} from 'hookrouter';
+import { LinkEnum } from '../../routes';
 
 const HomePage = () => {
     return(
@@ -15,7 +16,7 @@ const HomePage = () => {
                         <b>Find</b> all your favorite <b>Pokemons</b>
                     </h1>
                     <p>You can know the type of Pokemon, its strengths, disadvantages and abilities</p>
-                    <Button onClick={()=> navigate('/pokedex')}
+                    <Button onClick={()=> navigate(LinkEnum.POKEDEX)}
                         fullWidth={false}
                         color='color??'
                         size='size??'
