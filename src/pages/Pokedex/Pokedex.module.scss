@@ -1,5 +1,12 @@
+// @import "~bootstrap/scss/bootstrap";
+
 .pokemons_block {
     margin-top: 3%;
+}
+
+.align_center {
+    // text-align: center;
+    margin-left: 34%;
 }
 
 .inline {
@@ -48,4 +55,12 @@
     margin-left: 9%;
     margin-top: 2%;
 
+}
+
+.pagination {
+    margin-left: 37%;
+}
+
+.pagination_page {
+    margin-right: 5%;
 }

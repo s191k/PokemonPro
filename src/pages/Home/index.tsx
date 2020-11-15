@@ -12,18 +12,27 @@ const HomePage = () => {
             <Header/>
             {/* <Layout className={s.contentWrap}/> */}
                 <div className={s.contentText}>
-                    <h1>
-                        <b>Find</b> all your favorite <b>Pokemons</b>
-                    </h1>
-                    <p>You can know the type of Pokemon, its strengths, disadvantages and abilities</p>
-                    <Button onClick={()=> navigate(LinkEnum.POKEDEX)}
-                        fullWidth={false}
-                        color='color??'
-                        size='size??'
-                    >
-                        See Pokemons
-                    </Button>
+                    <div className={s.contentText_first}>
+                        <h1>
+                            <b>Find</b> all your favorite <b>Pokemons</b>
+                        </h1>
+                    </div>
+
+                    <div  className={s.contentText_second}>
+                        <h2>You can know the type of Pokemon, its strengths, disadvantages and abilities</h2>
+                    </div>
+                    <div className={s.button}>
+                        <Button onClick={()=> navigate(LinkEnum.POKEDEX)}
+                            fullWidth={false}
+                            color='color??'
+                            size='size??'
+                        >
+                            See Pokemons
+                        </Button>
+                    </div>
                 </div>    
+
+
                 <div className={s.contentParallax}>
                     <Parallax/>
                 </div>
