@@ -7,12 +7,69 @@
 }
 
 .contentText {
-  align-items: center;
+  position: absolute;
+  left: 10.9%;
+  right: 53.3%;
+  top: 21.58%;
+  bottom: 24.02%;
+}
 
+.contentText_first {
+  position: absolute;
+  left: 0.19%;
+  right: 1.74%;
+  top: 0%;
+  bottom: 54.76%;
+
+  /* h1 */
+
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 84px;
+  letter-spacing: 4px;
+
+  color: #000000;
+}
+
+.contentText_second {
+  position: absolute;
+  left: 0.19%;
+  right: 0%;
+  top: 70.73%;
+  bottom: 23.34%;
+
+  /* h2 */
+
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+
+  color: #000000;
+}
+
+.button {
+  position: absolute;
+  left: 0%;
+  right: 55.23%;
+  top: 100.15%;
+  bottom: 0%;
 }
 
 .contentParallax {
-  align-items: center;
+  position: absolute;
+  width: 793px;
+  height: 680px;
+  left: 648px;
+  top: 160px;
+
+  left: 50%;
+  // right: 0%;
+  // top: 0%;
+  // bottom: -6.92%;
 }
 
 .inline {

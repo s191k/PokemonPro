@@ -3,6 +3,28 @@ import React, { useEffect, useState } from 'react';
 
 import s from './PokemonCard.module.scss';
 
+interface IPokemonTypes {
+    [key: string]: string;
+  }
+
+const pokemonTypes:IPokemonTypes = {
+    'water':'#00BFFF',
+    'fire':'#B33327',
+    'grass':'#64D368',
+    'poison':'#8B008B',
+    'bug':'#D2691E',
+    'normal':'#FDFDFD',
+    'flying':'#00FFFF',
+    'ground':'#8B0000',
+    'fairy':'#FFC0CB',
+    'psychic':'#00BFFF',
+    'fighting':'#00BFFF',
+    'ice':'#00BFFF',
+    'rock':'#00BFFF',
+    'electric':'#F5DB13',
+    'steel':'#C0C0C0',
+}
+
 interface IPokemonCard {
     name:string,
     attack:number,
@@ -11,27 +33,12 @@ interface IPokemonCard {
     img:string,
 }
 
+// TODO -- можно передавать просто весь объект одного покемона сюда)
+// + нужно display: flex и flex-wrap: wrap задать
 const PokemonCard: React.FC<IPokemonCard> = ({name, attack, defense, type, img}) => {
-
-    // const [screenX,setScreenX] = useState(0); // Нужно узнать стартовый X карточки
-    // const [screenY,setScreenY] = useState(0); // Нужно узнать стартовый Y карточки
-
-    // useEffect(()=>{
-    //     const handleMouseMove = (event: MouseEvent) => {
-    //         setScreenX(event.screenX);
-    //         setScreenY(event.screenY);
-    //     }
-    //     window.addEventListener('mousemove', handleMouseMove);
-    //     return () => window.removeEventListener('mousemove', handleMouseMove)
-    // }, [screenX,screenY]);
-
-    
     return (
         <div className={s.root}>
             <div className={s.infoWrap}>
-                {/* <Heading size='xs' className={s.titleName}>
-                    Charmander
-                </Heading> */}
                 <div className={s.titleName}>{name}</div>
 
                 <div className={s.statWrap}>
@@ -52,10 +59,10 @@ const PokemonCard: React.FC<IPokemonCard> = ({name, attack, defense, type, img})
                 {
                     type.map((curType) => (
                         <>
-                        <span className={s.label}>
-                        {/* <span className={cn(s.label,{
-                                 [s.label.bac]: link===path,
-                                 })}> */}
+                        <span className={s.label}
+                              style={{
+                                background: pokemonTypes[curType]
+                              }}>
                             {curType}</span>
                         </>
                     ))
@@ -64,9 +71,9 @@ const PokemonCard: React.FC<IPokemonCard> = ({name, attack, defense, type, img})
                 </div>
             </div>
             <div className={s.pictureWrap}                 
-                // style = {{
-                //     transform: `translate(${screenY * 0.01}px, ${screenX * 0.01}px)`
-                // }}
+                style={{
+                    background: pokemonTypes[type[0]],
+                  }}
                 >
                 <img src={img} alt={name} />
             </div>
