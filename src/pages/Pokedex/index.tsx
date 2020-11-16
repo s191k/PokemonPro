@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Header from "../../components/Header";
 import Combobox from "../../components/Combobox";
 
@@ -7,59 +7,41 @@ import PokemonCard from '../../components/PokemonCard';
 import LoadingPage from '../Loading';
 import NotFoundPage from '../NotFoundPage';
 
-import Pagination from 'react-bootstrap/Pagination'
+import getData from '../../hook/getData';
 
-const usePokemons = () => {
-    const [data, setData] = useState(0);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
-
-    useEffect(() => {
-        const getPokemons = async()=> {
-            setIsLoading(true);
-            try {
-                const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons?limit=1050');
-                const result = await response.json();
-                console.log(result)
-                setData(result);
-            } catch (e) {
-                setIsError(true);
-            } finally {
-                setIsLoading(false);
-            }
-        }
-        getPokemons();
-    }, []);
-
-    return {
-        data,
-        isLoading,
-        isError
-    }
-}
-
-
-
-// const PokedexPage = () => {
 const PokedexPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [postPerPage, setPostPerPage] = useState(12);
+    const [searchValue, setSearchValue] = useState();
+    const [query, setQuery] = useState({limit:'1050'}); //1050 - Общее кол-во покемонов
 
     const {
         data,
         isLoading,
         isError
-    } = usePokemons();
+    } = getData('getPokemons', query, [searchValue]);
 
     console.log(data);
     if (isLoading) { return  <LoadingPage/>}
     if (isError) { return <NotFoundPage/>}
 
+    // const indexOfLastPost = currentPage * postPerPage;
+    // const indexOfFirstPost = indexOfLastPost - postPerPage;
+    // const currentPokemons = data.pokemons.slice(indexOfFirstPost, indexOfLastPost);
+    
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setCurrentPage(1);
+        setSearchValue(e.target.value);
+        setQuery((s) => ({
+            ...s, 
+            name: e.target.value,
+            limit: data.total, 
+        }))
+    }
 
     const indexOfLastPost = currentPage * postPerPage;
     const indexOfFirstPost = indexOfLastPost - postPerPage;
     const currentPokemons = data.pokemons.slice(indexOfFirstPost, indexOfLastPost);
-    
 
     return(
         <>
@@ -69,7 +51,7 @@ const PokedexPage = () => {
         <div className={s.title}>
                 {data.total} <b>Pokemons</b> for you to choose your favorite
         </div>
-        <input type="search" aria-label="Encuentra tu pokémon..." className={s.search_field}></input>
+        <input autoFocus type="search" aria-label="Encuentra tu pokémon..." className={s.search_field} value={searchValue} onChange={handleSearchChange}/>
         
         <Combobox/>
 
@@ -95,26 +77,40 @@ const PokedexPage = () => {
 
         <div className={s.pagination}>
             
+            {
+            (data.pokemons.length/12) > 1 &&
             <label className={s.pagination_page}  onClick={()=> {  setCurrentPage(1); }}>
                 First Page
             </label>
-            
-            <label className={s.pagination_page}  onClick={()=>{ if (currentPage > 1 ) setCurrentPage(currentPage - 1)}}>
-               {currentPage - 1}
-            </label>
-            
+            }
+
+            {
+                (data.pokemons.length/12) > 2 && 
+                (currentPage > 1) &&
+                <label className={s.pagination_page}  onClick={()=>{ if (currentPage > 1 ) setCurrentPage(currentPage - 1)}}>
+                {currentPage - 1}
+                </label>
+            }
+
             <label className={s.pagination_page}>
-               {currentPage}
+               CurPage ::: {currentPage}
             </label> 
 
-            <label className={s.pagination_page}  onClick={()=> { if (currentPage < Math.round(data.total / postPerPage) ) setCurrentPage(currentPage + 1)}}>
+            {
+            (data.pokemons.length/12) > 2 &&
+            (currentPage < Math.round(data.pokemons.length / postPerPage)) &&
+            <label className={s.pagination_page}  onClick={()=> { if (currentPage < Math.round(data.pokemons.length / postPerPage) ) setCurrentPage(currentPage + 1)}}>
                {currentPage + 1}
             </label>
-            
-            <label className={s.pagination_page}  onClick={()=> {  setCurrentPage(Math.round(data.total / postPerPage)); }}>
+            }
+
+            {
+            (data.pokemons.length/12) > 1 &&
+            <label className={s.pagination_page}  onClick={()=> {  setCurrentPage(Math.round(data.pokemons.length / postPerPage)); }}>
                 Last Page
             </label>
-            
+            }
+
         </div>
 
         </>
