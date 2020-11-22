@@ -102,15 +102,18 @@ export const pokemonTypes:ICombobox[] = [
     }, 
 ]
 
-const Combobox = () => {
+// const Combobox = (handleChange:Function)  => {
+const Combobox = ({handleChange})  => {
+
+        let curBoxName = "Type";
 
         return(
             <>
-                <br/>
                 <div className={s.center}>
                     <form className={s.form}>
-                        <p><select name="combobox_Tipo" className={s.select}>
-                            <option selected className={s.option}>Type</option>
+                        {/* <p><select name="combobox_Tipo" className={s.select} onChange={() => {handleChange ; ()=>{}} }> */}
+                        <p><select name="combobox_Tipo" className={s.select} onChange={handleChange}>
+                            <option selected className={s.option}>{curBoxName}</option>
                             {
                                 pokemonTypes.map(({id , name}) => (
                                 <option key={id} className={s.option}>{name}</option>
@@ -118,7 +121,7 @@ const Combobox = () => {
                             }
                         </select></p>
                     </form>
-                    <form className={s.form}>
+                    {/* <form className={s.form}>
                         <p><select name="combobox_Ataque" className={s.select}>
                             <option selected className={s.option}>Attack</option>
                             {
@@ -137,7 +140,7 @@ const Combobox = () => {
                                 ))
                             }
                         </select></p>
-                    </form>
+                    </form> */}
                 </div>
            </>
         )

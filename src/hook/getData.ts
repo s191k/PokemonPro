@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import req from '../utils/requests';
 
 const useData = (endpoint:string, query: object, deps: any[] = []) => {
-    const [data, setData] = useState(0);
+    const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
 
@@ -10,6 +10,7 @@ const useData = (endpoint:string, query: object, deps: any[] = []) => {
         const getData = async()=> {
             setIsLoading(true);
             try {
+                // console.log(query)
                 const result = await req(endpoint, query)
                 console.log(result)
                 setData(result);
