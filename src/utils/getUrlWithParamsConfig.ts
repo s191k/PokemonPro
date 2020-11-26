@@ -4,7 +4,7 @@ function getUrlWithParamsConfig (endpointConfig:string, query:object) {
 
     let url = {
         ...config.client.server,
-        ...config.client.endpoint[endpointConfig].uri,
+        ...config.client.endpoint[endpointConfig as keyof typeof config.client.endpoint].uri,
         query: {
             ...query,
         }
